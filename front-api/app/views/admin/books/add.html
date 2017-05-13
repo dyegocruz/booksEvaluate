@@ -1,0 +1,73 @@
+<div ng-controller="BookController">
+    <div class="page-header">
+        <h4>Adicionar Livro</h4>    
+    </div>
+
+    <div ng-if="listErrors">
+        <div class="alert alert-danger">
+            <ul>
+                <li ng-repeat="error in listErrors" >
+                    {{ error.message }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <form class="well form-horizontal form_book" ng-submit="registerBook()" name="formBook" ng-init="init()">
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Título</label>     
+            <div class="col-md-4">                
+                <input type="text" name="title" placeholder="Título" class="form-control" ng-model="bookAdd.title" required>                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Autor</label>     
+            <div class="col-md-4">                
+                <input type="text" name="author" placeholder="Autor" class="form-control" ng-model="bookAdd.author" required>                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">ISBN</label>     
+            <div class="col-md-4">                
+                <input type="text" name="isbn" placeholder="ISBN" class="form-control" ng-model="bookAdd.isbn" required>                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Ano da publicação</label>     
+            <div class="col-md-4">                
+                <input type="number" name="publication_year" placeholder="Ano da publicação" class="form-control" ng-model="bookAdd.publication_year" required>                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Edição</label>     
+            <div class="col-md-4">                
+                <input type="number" name="edition" placeholder="Edição" class="form-control" ng-model="bookAdd.edition">                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Código</label>     
+            <div class="col-md-4">                
+                <input type="text" name="code" placeholder="Código" class="form-control" ng-model="bookAdd.code" required>                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Localização</label>     
+            <div class="col-md-4">                
+                <input type="text" name="location" placeholder="Localização" class="form-control" ng-model="bookAdd.location" required>                
+            </div>
+        </div>        
+
+        <div class="form-group">        
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-primary pull-right">Registrar</button>
+            </div>
+        </div>
+    </form>
+</div>

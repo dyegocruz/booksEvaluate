@@ -1,0 +1,53 @@
+<div ng-controller="BookController">
+    <div class="page-header">
+        <h3>Livros</h3>
+        <button class="btn btn-info" ng-click="addForm()">Adicionar</button>
+    </div>
+
+    <div ng-init="init();">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr role="row">
+                    <th ng-click="sort('title')">Título
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='title'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('author')">Autor
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='author'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('code')">Código
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='code'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('location')">Localização
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='location'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th> 
+                    <th ng-click="sort('count')">Avaliações
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='count'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('gradeAvg')">Média Geral
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='gradeAvg'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>                                            
+                </tr>
+                <tr>              
+                    <th colspan="6"><input ng-model="search" class="form-control" placeholder="Busque na Tabela ..." type="text"/></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="bk in listBooks|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+                    <td>{{ bk.title }}</td>
+                    <td>{{ bk.author }}</td>                    
+                    <td>{{ bk.code }}</td>
+                    <td>{{ bk.location }}</td>                    
+                    <td>{{ bk.evaluatesCalc.count }}</td>
+                    <td>{{ bk.evaluatesCalc.gradeAvg | number: 2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row text-center">        
+            <dir-pagination-controls
+                max-size="5"
+                direction-links="true"
+                boundary-links="true" >
+            </dir-pagination-controls>        
+        </div>
+    </div>
+</div>

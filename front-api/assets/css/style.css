@@ -1,0 +1,16 @@
+.form_evaluate h3 {
+    text-align: center;
+}
+
+a[ng-click]{
+    cursor: pointer;
+}
+
+.sort-icon {
+    font-size: 9px;
+    margin-left: 5px;
+}
+
+th {
+    cursor:pointer;
+}
